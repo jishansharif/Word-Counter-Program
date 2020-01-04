@@ -26,10 +26,17 @@ while loop == "Yes":
 #text is converted to lower case letters for consistency
     text_list = text.split()
 #split converts the text into a list of words
-    length_list = len(text_list)
-#we can now calculate the length of the new list
-    print(length_list)
+    new_dict= {}
+    for word in text_list:
+        new_dict[word] = new_dict.get(word,0)+1
+    new_list = []
+    for (value,key) in new_dict.items():
+       new_list.append((value,key))
+    new_list.sort()
+    print(new_list)
+    
+
+   
     
 
 
-#newdict = {"Mom":"Yesmin", "Dad":"Delawar", "Favorite Son": "Jishan"}
