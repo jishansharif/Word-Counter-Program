@@ -13,8 +13,7 @@ Created on Sun Dec 29 18:56:12 2019
 #How to use a dictionary in this scenario?
 #Built in input function allows users to interact with the program
 #str converts the added text into a string
-loop = "Yes"
-while loop == "Yes":
+while True :
     text = str(input("Enter text here"))
     if text == "x":
         break 
