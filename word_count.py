@@ -5,37 +5,33 @@ Created on Sun Dec 29 18:56:12 2019
 
 @author: jishanmsharif
 """
+def main():
+    f = open("newfile.txt", "r")
+    if f.mode == "r":
+        # text reads the file, the ouput is a string.
+        text = f.read()
+        # split converts the string into a list using whitespace as separators. 
+        words = text.split(" ")
+        # table is a dictionary.
+        table = {}
+        for word in words:
+            # the value is assigned onto the variable count. 
+            # table.get(word) returns the value to the key 'word'
+            count = table.get(word)
+            if count == None:
+                # if the key does not exist, table[word] will be one.  
+                # if the key does not exist, the key is created with the value being one. 
+                table[word] = 1
+            else: 
+                # if the key exists, the value of the key is added to it's previous value.
+                table[word] = 1 + table[word]
+            print(table)                 
+    f.close()
+if __name__== "__main__":
+  main()        
 
-#f = open("newfile.txt","w+")
-#for i in range(10):
-    #print("This is line \n" (i +1))
-
-#How to use a dictionary in this scenario?
-#Built in input function allows users to interact with the program
-#str converts the added text into a string
-while True :
-    text = str(input("Enter text here"))
-    if text == "x":
-        break 
-#any unique charecter is converted to an empty space
-#This is so that the program doesn't count these charecters as a separate word
-    for char in '-,.\n':
-        text = text.replace(char, ' ')
-    text = text.lower()
-#text is converted to lower case letters for consistency
-    text_list = text.split()
-#split converts the text into a list of words
-    new_dict= {}
-    for word in text_list:
-        new_dict[word] = new_dict.get(word,0)+1
-    new_list = []
-    for (value,key) in new_dict.items():
-       new_list.append((value,key))
-    new_list.sort()
-    print(new_list)
     
+        
 
-   
-    
 
 
