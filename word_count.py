@@ -25,7 +25,20 @@ def main():
             else: 
                 # if the key exists, the value of the key is added to it's previous value.
                 table[word] = 1 + table[word]
-            print(table)                 
+
+        # We initialize a new list.
+        newlist = []
+        # items converts the value and the key into a tuple type.
+        for (value,key) in table.items():
+            # append adds the tuple onto the newlist. This is done 
+            # because a list can only take values of the same type.
+            newlist.append((value,key))
+            # We can now sort the list
+        newlist.sort()
+        # The most used word is now assigned to the variable mostusedword.
+        mostusedword = newlist[0]
+        print(mostusedword)
+                        
     f.close()
 if __name__== "__main__":
   main()        
