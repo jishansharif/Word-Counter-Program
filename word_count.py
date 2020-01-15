@@ -10,8 +10,14 @@ def main():
     if f.mode == "r":
         # text reads the file, the ouput is a string.
         text = f.read()
+        # We are coverting the text into lowercase so words with uppercase letter is treated
+        # the same way as words with lowercase.
+        for specialcharecters in '.,-\n':
+            # We are removing special charecters for homogenity. 
+            texts = text.replace(specialcharecters,'')
+        texts = text.lower()
         # split converts the string into a list using whitespace as separators. 
-        words = text.split(" ")
+        words = texts.split(" ")
         # table is a dictionary.
         table = {}
         for word in words:
@@ -26,18 +32,15 @@ def main():
                 # if the key exists, the value of the key is added to it's previous value.
                 table[word] = 1 + table[word]
 
-        # We initialize a new list.
         newlist = []
         # items converts the value and the key into a tuple type.
-        for (value,key) in table.items():
+        for (key,value) in table.items():
             # append adds the tuple onto the newlist. This is done 
             # because a list can only take values of the same type.
             newlist.append((value,key))
-            # We can now sort the list
         newlist.sort()
-        # The most used word is now assigned to the variable mostusedword.
-        mostusedword = newlist[0]
-        print(mostusedword)
+        mostfrequentword = newlist.pop()
+        print(mostfrequentword)
                         
     f.close()
 if __name__== "__main__":
